@@ -19,6 +19,7 @@ REPORT=final_report.txt
 [ ! -f "$JAR_FILE" ] && echo "JAR not found" && exit 1
 
 hdfs dfs -rm -r -f ${HDFS_BASE_OUTPUT_DIR}_*
+rm -rf logs && mkdir logs
 
 for reducers in 1 2 4 8; do
     HDFS_OUTPUT_DIR="${HDFS_BASE_OUTPUT_DIR}_reducers_${reducers}"
